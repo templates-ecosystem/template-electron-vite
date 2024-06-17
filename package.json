@@ -47,5 +47,8 @@
   },
   "engines": {
     "node": ">=20.6.0 || >=22"
+  },
+  "resolutions": {
+    "@electron-forge/core-utils@npm:7.4.0": "patch:@electron-forge/core-utils@npm%3A7.4.0#~/.yarn/patches/@electron-forge-core-utils-npm-7.4.0-881d5c9e73.patch"
   }
 }

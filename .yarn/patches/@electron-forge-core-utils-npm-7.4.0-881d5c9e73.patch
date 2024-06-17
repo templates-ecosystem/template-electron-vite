@@ -1,0 +1,57 @@
+diff --git a/dist/electron-version.js b/dist/electron-version.js
+index 55800845e873a05b04603f55b8bcd0639a8489a6..c7beb03fa1ea0507ae735b80fa7265ba5570afe8 100644
+--- a/dist/electron-version.js
++++ b/dist/electron-version.js
+@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.updateElectronDependency = exports.getElectronVersion = exports.getElectronModulePath = exports.PackageNotFoundError = void 0;
+ const path_1 = __importDefault(require("path"));
+ const debug_1 = __importDefault(require("debug"));
+-const find_up_1 = __importDefault(require("find-up"));
+ const fs_extra_1 = __importDefault(require("fs-extra"));
+ const semver_1 = __importDefault(require("semver"));
+ const yarn_or_npm_1 = require("./yarn-or-npm");
+@@ -15,25 +14,6 @@ const electronPackageNames = ['electron-nightly', 'electron'];
+ function findElectronDep(dep) {
+     return electronPackageNames.includes(dep);
+ }
+-async function findAncestorNodeModulesPath(dir, packageName) {
+-    d('Looking for a lock file to indicate the root of the repo');
+-    const lockPath = await (0, find_up_1.default)(['package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'], { cwd: dir, type: 'file' });
+-    if (lockPath) {
+-        d(`Found lock file: ${lockPath}`);
+-        const nodeModulesPath = path_1.default.join(path_1.default.dirname(lockPath), 'node_modules', packageName);
+-        if (await fs_extra_1.default.pathExists(nodeModulesPath)) {
+-            return nodeModulesPath;
+-        }
+-    }
+-    return Promise.resolve(undefined);
+-}
+-async function determineNodeModulesPath(dir, packageName) {
+-    const nodeModulesPath = path_1.default.join(dir, 'node_modules', packageName);
+-    if (await fs_extra_1.default.pathExists(nodeModulesPath)) {
+-        return nodeModulesPath;
+-    }
+-    return findAncestorNodeModulesPath(dir, packageName);
+-}
+ class PackageNotFoundError extends Error {
+     constructor(packageName, dir) {
+         super(`Cannot find the package "${packageName}". Perhaps you need to run "${(0, yarn_or_npm_1.safeYarnOrNpm)()} install" in "${dir}"?`);
+@@ -53,15 +33,11 @@ function getElectronModuleName(packageJSON) {
+     return packageName;
+ }
+ async function getElectronPackageJSONPath(dir, packageName) {
+-    const nodeModulesPath = await determineNodeModulesPath(dir, packageName);
+-    if (!nodeModulesPath) {
++    try {
++        return require.resolve(`${packageName}/package.json`, { paths: [dir] });
++    } catch {
+         throw new PackageNotFoundError(packageName, dir);
+     }
+-    const electronPackageJSONPath = path_1.default.join(nodeModulesPath, 'package.json');
+-    if (await fs_extra_1.default.pathExists(electronPackageJSONPath)) {
+-        return electronPackageJSONPath;
+-    }
+-    return undefined;
+ }
+ async function getElectronModulePath(dir, packageJSON) {
+     const moduleName = getElectronModuleName(packageJSON);

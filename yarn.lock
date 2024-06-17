@@ -254,6 +254,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@electron-forge/core-utils@patch:@electron-forge/core-utils@npm%3A7.4.0#~/.yarn/patches/@electron-forge-core-utils-npm-7.4.0-881d5c9e73.patch":
+  version: 7.4.0
+  resolution: "@electron-forge/core-utils@patch:@electron-forge/core-utils@npm%3A7.4.0#~/.yarn/patches/@electron-forge-core-utils-npm-7.4.0-881d5c9e73.patch::version=7.4.0&hash=87e436"
+  dependencies:
+    "@electron-forge/shared-types": "npm:7.4.0"
+    "@electron/rebuild": "npm:^3.2.10"
+    "@malept/cross-spawn-promise": "npm:^2.0.0"
+    chalk: "npm:^4.0.0"
+    debug: "npm:^4.3.1"
+    find-up: "npm:^5.0.0"
+    fs-extra: "npm:^10.0.0"
+    log-symbols: "npm:^4.0.0"
+    semver: "npm:^7.2.1"
+    yarn-or-npm: "npm:^3.0.1"
+  checksum: 10c0/eeb47eb57331a9c99899b8d8120709abd3ac89c163f63d2a36a9d55d3e242bf7da28ba434b1ca37e459c911d07cae3c4c34f4a4d525f85344334093fc6d11268
+  languageName: node
+  linkType: hard
+
 "@electron-forge/core@npm:7.4.0":
   version: 7.4.0
   resolution: "@electron-forge/core@npm:7.4.0"
