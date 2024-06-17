@@ -8,8 +8,9 @@ try {
   // Handle creating/removing shortcuts on Windows when installing/uninstalling.
   import.meta.resolve('electron-squirrel-startup/package.json')
   app.quit()
-} catch {
+} catch (error) {
   // Ignore
+  console.log('Ignore error: ', error)
 }
 
 const createWindow = () => {
