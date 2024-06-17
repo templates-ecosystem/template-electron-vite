@@ -315,6 +315,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@electron-forge/core@patch:@electron-forge/core@npm%3A7.4.0#~/.yarn/patches/@electron-forge-core-npm-7.4.0-4c33fc0cff.patch":
+  version: 7.4.0
+  resolution: "@electron-forge/core@patch:@electron-forge/core@npm%3A7.4.0#~/.yarn/patches/@electron-forge-core-npm-7.4.0-4c33fc0cff.patch::version=7.4.0&hash=1a06fc"
+  dependencies:
+    "@electron-forge/core-utils": "npm:7.4.0"
+    "@electron-forge/maker-base": "npm:7.4.0"
+    "@electron-forge/plugin-base": "npm:7.4.0"
+    "@electron-forge/publisher-base": "npm:7.4.0"
+    "@electron-forge/shared-types": "npm:7.4.0"
+    "@electron-forge/template-base": "npm:7.4.0"
+    "@electron-forge/template-vite": "npm:7.4.0"
+    "@electron-forge/template-vite-typescript": "npm:7.4.0"
+    "@electron-forge/template-webpack": "npm:7.4.0"
+    "@electron-forge/template-webpack-typescript": "npm:7.4.0"
+    "@electron-forge/tracer": "npm:7.4.0"
+    "@electron/get": "npm:^3.0.0"
+    "@electron/packager": "npm:^18.3.1"
+    "@electron/rebuild": "npm:^3.2.10"
+    "@malept/cross-spawn-promise": "npm:^2.0.0"
+    chalk: "npm:^4.0.0"
+    debug: "npm:^4.3.1"
+    fast-glob: "npm:^3.2.7"
+    filenamify: "npm:^4.1.0"
+    find-up: "npm:^5.0.0"
+    fs-extra: "npm:^10.0.0"
+    got: "npm:^11.8.5"
+    interpret: "npm:^3.1.1"
+    listr2: "npm:^7.0.2"
+    lodash: "npm:^4.17.20"
+    log-symbols: "npm:^4.0.0"
+    node-fetch: "npm:^2.6.7"
+    progress: "npm:^2.0.3"
+    rechoir: "npm:^0.8.0"
+    resolve-package: "npm:^1.0.1"
+    semver: "npm:^7.2.1"
+    source-map-support: "npm:^0.5.13"
+    sudo-prompt: "npm:^9.1.1"
+    username: "npm:^5.1.0"
+    yarn-or-npm: "npm:^3.0.1"
+  checksum: 10c0/f4e00db316eef984ed1af84c38b8de80474212c3fc02227ea852ee4c3bc6b0bb0b801cd8e6c288e64a590c41029bb1495bb12b92f03dd2327c1efc23fad60404
+  languageName: node
+  linkType: hard
+
 "@electron-forge/maker-base@npm:7.4.0":
   version: 7.4.0
   resolution: "@electron-forge/maker-base@npm:7.4.0"

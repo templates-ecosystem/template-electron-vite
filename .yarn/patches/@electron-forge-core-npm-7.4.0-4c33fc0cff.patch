@@ -1,0 +1,26 @@
+diff --git a/dist/api/start.js b/dist/api/start.js
+index db36a549af102fd75d23684f5d829fd4c61dbb7b..1d245beb2cb19488994dd533feb4357ae7431fb3 100644
+--- a/dist/api/start.js
++++ b/dist/api/start.js
+@@ -15,6 +15,13 @@ const hook_1 = require("../util/hook");
+ const read_package_json_1 = require("../util/read-package-json");
+ const resolve_dir_1 = __importDefault(require("../util/resolve-dir"));
+ const d = (0, debug_1.default)('electron-forge:start');
++function removePnpLoaderArguments(input) {
++  if (!input) return input;
++  return input.replace(
++    /((--require\s+[^"].+\.pnp\.cjs)|(--experimental-loader\s+[^"].+\.pnp\.loader\.mjs)|(--require\s+".+\.pnp\.cjs")|(--experimental-loader\s+".+\.pnp\.loader\.mjs")) ?/g,
++    ''
++  );
++}
+ exports.default = (0, tracer_1.autoTrace)({ name: 'start()', category: '@electron-forge/core' }, async (childTrace, { dir: providedDir = process.cwd(), appPath = '.', interactive = false, enableLogging = false, args = [], runAsNode = false, inspect = false, inspectBrk = false, }) => {
+     const platform = process.env.npm_config_platform || process.platform;
+     const arch = process.env.npm_config_arch || process.arch;
+@@ -118,6 +125,7 @@ exports.default = (0, tracer_1.autoTrace)({ name: 'start()', category: '@electro
+                     : {}),
+             },
+         };
++        spawnOpts.env.NODE_OPTIONS = removePnpLoaderArguments(spawnOpts.env.NODE_OPTIONS);
+         if (runAsNode) {
+             spawnOpts.env.ELECTRON_RUN_AS_NODE = 'true';
+         }
