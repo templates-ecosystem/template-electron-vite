@@ -7,6 +7,8 @@ export const builtins = ['electron', ...builtinModules.flatMap((m) => [m, `node:
 
 export const external = [...builtins, ...Object.keys('dependencies' in pkg ? (pkg.dependencies as Record<string, unknown>) : {})]
 
+export const esmodule = pkg.type === 'module'
+
 export function getBuildConfig({ root, mode, command }: ConfigEnv<'build'>): UserConfig {
   return {
     root,
@@ -17,7 +19,8 @@ export function getBuildConfig({ root, mode, command }: ConfigEnv<'build'>): Use
       // 🚧 Multiple builds may conflict.
       outDir: '.vite/build',
       watch: command === 'serve' ? {} : null,
-      minify: command === 'build'
+      minify: command === 'build',
+      sourcemap: command === 'serve'
     },
     cacheDir: '.vite/cache',
     clearScreen: false
