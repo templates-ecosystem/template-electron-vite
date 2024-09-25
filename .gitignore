@@ -8,4 +8,4 @@
 !.yarn/versions
 
 # Vite
-.vite/
+/.vite/
