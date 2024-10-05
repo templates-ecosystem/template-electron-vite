@@ -7,7 +7,7 @@ try {
   app.quit()
 } catch (error) {
   // Ignore
-  console.log('Ignore error: ', error)
+  console.log('Ignore error:', error)
 }
 
 const createWindow = () => {
