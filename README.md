@@ -1,10 +1,26 @@
-# Install
-`yarn add yarn-berry-template`
+# template-electron
 
+<a href="https://github.com/tandpfun/skill-icons">
+  <img align="center" src="https://skillicons.dev/icons?i=electron,vite,solidjs,ts&theme=dark" />
+</a>
 
-# Example
-```ts
-import { <FUNCTION> } from 'yarn-berry-template'
+### 📚 Template stack
+- **Electron**
+- **Vite**
+- **ESLint**
+- **TypeScript**
 
-await <FUNCTION>()
+### ⬇️ Clone
+```sh
+git clone https://github.com/rtritto/template-electron.git
+```
+
+### ⚙️ Install
+```sh
+yarn
+```
+
+### 🚀 Start
+```sh
+yarn dev
 ```
