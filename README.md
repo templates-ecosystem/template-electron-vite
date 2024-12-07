@@ -1,7 +1,7 @@
-# template-electron
+# template-electron-vite
 
 <a href="https://github.com/tandpfun/skill-icons">
-  <img align="center" src="https://skillicons.dev/icons?i=electron,vite,solidjs,ts&theme=dark" />
+  <img align="center" src="https://skillicons.dev/icons?i=electron,vite,ts&theme=dark" />
 </a>
 
 ### 📚 Template stack
@@ -12,7 +12,7 @@
 
 ### ⬇️ Clone
 ```sh
-git clone https://github.com/rtritto/template-electron.git
+git clone https://github.com/rtritto/template-electron-vite.git
 ```
 
 ### ⚙️ Install
