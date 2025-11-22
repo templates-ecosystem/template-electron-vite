@@ -44,12 +44,6 @@ const config: ForgeConfig = {
       name: '@electron-forge/plugin-auto-unpack-natives',
       config: {}
     },
-    {
-      name: '@electron-forge/plugin-electronegativity',
-      config: {
-        isSarif: true
-      }
-    },
     // Fuses are used to enable/disable various Electron functionality
     // at package time, before code signing the application
     new FusesPlugin({
